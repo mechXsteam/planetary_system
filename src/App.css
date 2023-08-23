@@ -1,0 +1,13 @@
+#data_box{
+  height: 30vw;
+}
+
+h2 {
+  padding-top: 100px;
+}
+
+.color_text{
+  background-color: yellow;
+  padding: 5px;
+  border-radius: 10px;
+}
