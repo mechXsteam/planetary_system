@@ -1,53 +1,34 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
-const currencies = [
-    {
-        value: 'USD',
-        label: '$',
-    },
-    {
-        value: 'EUR',
-        label: '€',
-    },
-    {
-        value: 'BTC',
-        label: '฿',
-    },
-    {
-        value: 'JPY',
-        label: '¥',
-    },
+export default function SelectTextFields({helperText,options,id}) {
+    const [selectedOption, setSelectedOption] = React.useState('');
 
-];
+    const handleChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
 
-export default function SelectBoxes({helperText}) {
     return (
-        <Box
-            component="form"
-            sx={{
-                '& .MuiTextField-root': {m: 1, width: '25ch'},
-            }}
-            noValidate
-            autoComplete="off"
-        >
-            <div>
-                <TextField
-                    id="outlined-select-currency"
-                    select
-                    label="Select"
-                    defaultValue="EUR"
-                    helperText={helperText}
+        <Box sx={{
+            minWidth: 250,
+            marginRight: 5
+        }}>
+            <FormControl variant="standard" sx={{ m: 1, minWidth: 250 }}>
+                <InputLabel>{helperText}</InputLabel>
+                <Select
+                    labelId={id}
+                    id={id}
+                    value={selectedOption}
+                    label={helperText}
+                    onChange={handleChange}
                 >
-                    {currencies.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
-                </TextField>
-            </div>
+                    {options.map(option=><MenuItem key={option} value={option}>{option}</MenuItem>)}
+                </Select>
+            </FormControl>
         </Box>
     );
 }

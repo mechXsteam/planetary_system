@@ -7,6 +7,7 @@ function App() {
 
     return (
         <div>
+            <h1 style={{textAlign: 'center'}}>Exoplanet <span className={'color_text'}>hunt!</span></h1>
             <MainComponent/>
         </div>
     )
