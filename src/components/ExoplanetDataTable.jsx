@@ -22,6 +22,7 @@ import {visuallyHidden} from '@mui/utils';
 
 
 export default function ExoplanetDataTable({queryResults}) {
+    console.log(queryResults)
     function createData(pl_name, hostname,disc_year, discoverymethod, disc_facility) {
         return {
             pl_name,

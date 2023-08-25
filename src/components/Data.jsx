@@ -10,9 +10,10 @@ function Placeholder() {
     </div>
 }
 
-export default function Data() {
+export default function Data({queryResults, firstTime}) {
     return <div className={'data_table'}>
-        {/*<Placeholder/>*/}
-        <ExoplanetDataTable/>
+        {firstTime === true ? <Placeholder/> : queryResults.length > 0 ? <ExoplanetDataTable queryResults={queryResults}/> : <h2 id={'data_box'}>
+            Ah! snap, no such exoplanet <span className={'color_text'}>exists</span>
+        </h2> }
     </div>
 }
